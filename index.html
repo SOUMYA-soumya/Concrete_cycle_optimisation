@@ -6,6 +6,12 @@
     <title>Precast AI | L&T Optimization Engine</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <script type="module">
+        import { Client } from "https://cdn.jsdelivr.net/npm/@gradio/client/dist/index.min.js";
+        window.GradioClient = Client;
+    </script>
+
     <script>
         tailwind.config = {
             theme: {
@@ -159,75 +165,62 @@
         </div>
     </main>
 
-    <script>
+    <script type="module">
         document.getElementById('precast-form').addEventListener('submit', async function(e) {
             e.preventDefault();
             
+            // UI States
             document.getElementById('empty-state').classList.add('hidden');
             document.getElementById('populated-results').classList.add('hidden');
             document.getElementById('error-state').classList.add('hidden');
             document.getElementById('loading').classList.remove('hidden');
 
-            const payload = {
-                data: [
-                    parseFloat(document.getElementById('cement').value),
-                    parseFloat(document.getElementById('slag').value),
-                    parseFloat(document.getElementById('fly_ash').value),
-                    parseFloat(document.getElementById('water').value),
-                    parseFloat(document.getElementById('superP').value),
-                    parseFloat(document.getElementById('coarse_agg').value),
-                    parseFloat(document.getElementById('fine_agg').value),
-                    parseFloat(document.getElementById('target_str').value),
-                    parseFloat(document.getElementById('temp').value),
-                    parseFloat(document.getElementById('humidity').value),
-                    document.getElementById('automation').value,
-                    document.getElementById('is_steam').checked
-                ]
-            };
-
             try {
-                // FIXED: URL must be all lowercase for HF Space subdomains
-                const API_URL = "https://sou-mya-concrete-cycle-optimisation.hf.space/run/predict"; 
+                // 1. Connect to your Space using the official Gradio Client
+                const client = await window.GradioClient.connect("SOU-mya/Concrete_cycle_optimisation");
 
-                const response = await fetch(API_URL, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
+                // 2. Call the prediction using the format found in your "Use via API" guide
+                const result = await client.predict("/predict", { 		
+                    cement: parseFloat(document.getElementById('cement').value), 		
+                    slag: parseFloat(document.getElementById('slag').value), 		
+                    fly_ash: parseFloat(document.getElementById('fly_ash').value), 		
+                    water: parseFloat(document.getElementById('water').value), 		
+                    super_p: parseFloat(document.getElementById('superP').value), 		
+                    coarse_agg: parseFloat(document.getElementById('coarse_agg').value), 		
+                    fine_agg: parseFloat(document.getElementById('fine_agg').value), 		
+                    target_str: parseFloat(document.getElementById('target_str').value), 		
+                    temp_c: parseFloat(document.getElementById('temp').value), 		
+                    humidity: parseFloat(document.getElementById('humidity').value), 		
+                    automation: document.getElementById('automation').value, 		
+                    is_steam: document.getElementById('is_steam').checked, 
                 });
-                
-                if (!response.ok) throw new Error("Backend Offline");
-                
-                const responseData = await response.json();
+
                 document.getElementById('loading').classList.add('hidden');
 
-                if(responseData.data && !responseData.data[0].includes("Failed")) {
-                    // Extract values from the array returned by app.py
-                    // [res_days, res_cost, res_str, res_breakdown]
-                    const daysRaw = responseData.data[0];
-                    const costRaw = responseData.data[1];
-                    const strRaw = responseData.data[2];
-                    const breakRaw = responseData.data[3];
+                // 3. Populate Results
+                if(result.data && !result.data[0].includes("Failed")) {
+                    // Gradio result.data maps directly to your Python return: [res_days, res_cost, res_str, res_breakdown]
+                    document.getElementById('out-days').innerText = result.data[0].split('(')[0].trim();
+                    document.getElementById('out-cost').innerText = result.data[1].replace('USD', '').trim();
+                    document.getElementById('out-str').innerText = "Target Met: " + result.data[2];
 
-                    document.getElementById('out-days').innerText = daysRaw.split('(')[0].trim();
-                    document.getElementById('out-cost').innerText = costRaw.replace('USD', '').trim();
-                    document.getElementById('out-str').innerText = "Target Met: " + strRaw;
-
-                    const parts = breakRaw.split(' | ');
+                    const parts = result.data[3].split(' | ');
                     if (parts.length === 4) {
-                        document.getElementById('break-mat').innerText = parts[0].split('$')[1];
-                        document.getElementById('break-lab').innerText = parts[1].split('$')[1];
-                        document.getElementById('break-eq').innerText = parts[2].split('$')[1];
-                        document.getElementById('break-en').innerText = parts[3].split('$')[1];
+                        document.getElementById('break-mat').innerText = parts[0].includes('$') ? parts[0].split('$')[1] : parts[0];
+                        document.getElementById('break-lab').innerText = parts[1].includes('$') ? parts[1].split('$')[1] : parts[1];
+                        document.getElementById('break-eq').innerText = parts[2].includes('$') ? parts[2].split('$')[1] : parts[2];
+                        document.getElementById('break-en').innerText = parts[3].includes('$') ? parts[3].split('$')[1] : parts[3];
                     }
 
                     document.getElementById('populated-results').classList.remove('hidden');
                 } else {
-                    document.getElementById('error-msg').innerText = "Mix design fails to meet strength requirements.";
+                    document.getElementById('error-msg').innerText = "Mix design fails to meet strength requirements within 28 days.";
                     document.getElementById('error-state').classList.remove('hidden');
                 }
             } catch (error) {
+                console.error("API Error:", error);
                 document.getElementById('loading').classList.add('hidden');
-                document.getElementById('error-msg').innerText = "AI Backend is waking up. Please retry in 30 seconds.";
+                document.getElementById('error-msg').innerText = "AI Backend is waking up or connection was refused. Please retry in 30 seconds.";
                 document.getElementById('error-state').classList.remove('hidden');
             }
         });
