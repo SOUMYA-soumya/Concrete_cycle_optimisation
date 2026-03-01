@@ -20,7 +20,6 @@
         }
     </script>
     <style>
-        /* Custom scrollbar for a sleek SaaS look */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #f1f5f9; }
         ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
@@ -47,7 +46,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h1 class="text-3xl md:text-5xl font-extrabold mb-4 tracking-tight">Operational Cycle Time Engine</h1>
             <p class="text-lg md:text-xl text-blue-100 max-w-3xl leading-relaxed">
-                A machine learning decision-support system designed to minimize element cycle time, reduce yard overhead, and optimize heavy civil precast operations through thermodynamic and chemical simulation.
+                A machine learning decision-support system designed to minimize element cycle time, reduce yard overhead, and optimize heavy civil precast operations.
             </p>
         </div>
     </div>
@@ -63,13 +62,13 @@
                 <div>
                     <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4 border-b pb-2">1. Base Mix Design Matrix (kg/m³)</h3>
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-5">
-                        <div><label class="block text-xs font-semibold text-slate-600 mb-1">Cement</label><input type="number" id="cement" value="350" class="block w-full rounded border-slate-300 shadow-sm focus:border-lntblue focus:ring-lntblue text-sm border p-2.5 bg-slate-50 transition"></div>
-                        <div><label class="block text-xs font-semibold text-slate-600 mb-1">Slag</label><input type="number" id="slag" value="0" class="block w-full rounded border-slate-300 shadow-sm focus:border-lntblue focus:ring-lntblue text-sm border p-2.5 bg-slate-50 transition"></div>
-                        <div><label class="block text-xs font-semibold text-slate-600 mb-1">Fly Ash</label><input type="number" id="fly_ash" value="100" class="block w-full rounded border-slate-300 shadow-sm focus:border-lntblue focus:ring-lntblue text-sm border p-2.5 bg-slate-50 transition"></div>
-                        <div><label class="block text-xs font-semibold text-slate-600 mb-1">Water</label><input type="number" id="water" value="160" class="block w-full rounded border-slate-300 shadow-sm focus:border-lntblue focus:ring-lntblue text-sm border p-2.5 bg-slate-50 transition"></div>
-                        <div><label class="block text-xs font-semibold text-slate-600 mb-1">Superplasticizer</label><input type="number" id="superP" value="5" class="block w-full rounded border-slate-300 shadow-sm focus:border-lntblue focus:ring-lntblue text-sm border p-2.5 bg-slate-50 transition"></div>
-                        <div><label class="block text-xs font-semibold text-slate-600 mb-1">Coarse Aggregate</label><input type="number" id="coarse_agg" value="1000" class="block w-full rounded border-slate-300 shadow-sm focus:border-lntblue focus:ring-lntblue text-sm border p-2.5 bg-slate-50 transition"></div>
-                        <div><label class="block text-xs font-semibold text-slate-600 mb-1">Fine Aggregate</label><input type="number" id="fine_agg" value="750" class="block w-full rounded border-slate-300 shadow-sm focus:border-lntblue focus:ring-lntblue text-sm border p-2.5 bg-slate-50 transition"></div>
+                        <div><label class="block text-xs font-semibold text-slate-600 mb-1">Cement</label><input type="number" id="cement" value="350" class="block w-full rounded border-slate-300 shadow-sm text-sm border p-2.5 bg-slate-50 transition"></div>
+                        <div><label class="block text-xs font-semibold text-slate-600 mb-1">Slag</label><input type="number" id="slag" value="0" class="block w-full rounded border-slate-300 shadow-sm text-sm border p-2.5 bg-slate-50 transition"></div>
+                        <div><label class="block text-xs font-semibold text-slate-600 mb-1">Fly Ash</label><input type="number" id="fly_ash" value="100" class="block w-full rounded border-slate-300 shadow-sm text-sm border p-2.5 bg-slate-50 transition"></div>
+                        <div><label class="block text-xs font-semibold text-slate-600 mb-1">Water</label><input type="number" id="water" value="160" class="block w-full rounded border-slate-300 shadow-sm text-sm border p-2.5 bg-slate-50 transition"></div>
+                        <div><label class="block text-xs font-semibold text-slate-600 mb-1">Superplasticizer</label><input type="number" id="superP" value="5" class="block w-full rounded border-slate-300 shadow-sm text-sm border p-2.5 bg-slate-50 transition"></div>
+                        <div><label class="block text-xs font-semibold text-slate-600 mb-1">Coarse Aggregate</label><input type="number" id="coarse_agg" value="1000" class="block w-full rounded border-slate-300 shadow-sm text-sm border p-2.5 bg-slate-50 transition"></div>
+                        <div><label class="block text-xs font-semibold text-slate-600 mb-1">Fine Aggregate</label><input type="number" id="fine_agg" value="750" class="block w-full rounded border-slate-300 shadow-sm text-sm border p-2.5 bg-slate-50 transition"></div>
                     </div>
                 </div>
 
@@ -78,36 +77,36 @@
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
                         <div>
                             <label class="block text-xs font-bold text-slate-800 mb-1">Target De-mould Strength (MPa)</label>
-                            <input type="number" id="target_str" value="30" class="block w-full rounded border-slate-300 shadow-sm border p-2.5 focus:ring-lntblue bg-slate-50 transition">
+                            <input type="number" id="target_str" value="30" class="block w-full rounded border-slate-300 shadow-sm border p-2.5 bg-slate-50 transition">
                         </div>
                         <div>
                             <label class="block text-xs font-bold text-slate-800 mb-1">Ambient Temperature (°C)</label>
-                            <input type="number" id="temp" value="35" class="block w-full rounded border-red-200 shadow-sm border p-2.5 focus:ring-red-500 bg-red-50 transition text-red-900 font-medium">
+                            <input type="number" id="temp" value="35" class="block w-full rounded border-red-200 border p-2.5 bg-red-50 transition text-red-900 font-medium">
                         </div>
                         <div>
                             <label class="block text-xs font-bold text-slate-800 mb-1">Relative Humidity (%)</label>
-                            <input type="number" id="humidity" value="60" class="block w-full rounded border-blue-200 shadow-sm border p-2.5 focus:ring-blue-500 bg-blue-50 transition text-blue-900 font-medium">
+                            <input type="number" id="humidity" value="60" class="block w-full rounded border-blue-200 border p-2.5 bg-blue-50 transition text-blue-900 font-medium">
                         </div>
                     </div>
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mt-6">
                         <div>
                             <label class="block text-xs font-bold text-slate-800 mb-1">Yard Automation Level</label>
-                            <select id="automation" class="block w-full rounded border-slate-300 shadow-sm border p-2.5 focus:ring-lntblue bg-slate-50 transition">
-                                <option value="Manual">Level 1: Manual (High Labor, Slow)</option>
-                                <option value="Semi-Auto" selected>Level 2: Semi-Auto (Balanced)</option>
-                                <option value="Fully-Auto">Level 3: Fully-Auto (High Equip Cost, Fast)</option>
+                            <select id="automation" class="block w-full rounded border-slate-300 border p-2.5 bg-slate-50 transition">
+                                <option value="Manual">Level 1: Manual</option>
+                                <option value="Semi-Auto" selected>Level 2: Semi-Auto</option>
+                                <option value="Fully-Auto">Level 3: Fully-Auto</option>
                             </select>
                         </div>
-                        <div class="flex items-center mt-6 p-2.5 border border-slate-200 rounded bg-slate-50 shadow-sm hover:bg-slate-100 transition cursor-pointer" onclick="document.getElementById('is_steam').click()">
-                            <input id="is_steam" type="checkbox" class="h-5 w-5 text-lntblue focus:ring-lntblue border-slate-300 rounded cursor-pointer">
-                            <label for="is_steam" class="ml-3 block text-sm text-slate-800 font-bold cursor-pointer">Deploy Steam Curing Chamber</label>
+                        <div class="flex items-center mt-6 p-2.5 border border-slate-200 rounded bg-slate-50 shadow-sm cursor-pointer" onclick="document.getElementById('is_steam').click()">
+                            <input id="is_steam" type="checkbox" class="h-5 w-5 text-lntblue border-slate-300 rounded cursor-pointer">
+                            <label for="is_steam" class="ml-3 block text-sm text-slate-800 font-bold cursor-pointer">Deploy Steam Curing</label>
                         </div>
                     </div>
                 </div>
 
                 <div class="mt-2">
-                    <button type="submit" class="w-full flex justify-center items-center py-4 px-4 border border-transparent rounded shadow-md text-base font-extrabold text-slate-900 bg-lntyellow hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-lntyellow transition-all hover:shadow-lg">
+                    <button type="submit" class="w-full flex justify-center items-center py-4 px-4 border border-transparent rounded shadow-md text-base font-extrabold text-slate-900 bg-lntyellow hover:bg-yellow-400 transition-all">
                         <i class="fa-solid fa-microchip text-xl mr-3"></i> Compute Optimization Directive
                     </button>
                 </div>
@@ -122,176 +121,113 @@
                 </div>
                 
                 <div class="p-6 flex flex-col flex-grow bg-slate-800" id="results-panel">
-                    
                     <div class="text-center text-slate-500 py-12 m-auto" id="empty-state">
                         <i class="fa-solid fa-server text-5xl mb-4 opacity-40"></i>
                         <p class="text-sm font-medium">Awaiting pipeline execution...</p>
-                        <p class="text-xs mt-2 text-slate-600">Enter parameters and run simulation to view cost and cycle analysis.</p>
                     </div>
 
                     <div id="populated-results" class="hidden flex flex-col h-full justify-between space-y-5">
-                        
-                        <div class="bg-slate-900 p-5 rounded-lg border border-slate-700 text-center shadow-inner">
+                        <div class="bg-slate-900 p-5 rounded-lg border border-slate-700 text-center">
                             <p class="text-xs text-slate-400 uppercase font-bold tracking-widest">Optimal Cycle Time</p>
-                            <p class="text-4xl font-extrabold text-white mt-2 drop-shadow-md" id="out-days">--</p>
+                            <p class="text-4xl font-extrabold text-white mt-2" id="out-days">--</p>
                             <p class="text-xs text-slate-500 mt-2 font-mono" id="out-str">Target Met: -- MPa</p>
                         </div>
 
-                        <div class="bg-slate-900 p-5 rounded-lg border border-green-900/50 text-center shadow-inner relative overflow-hidden group">
-                            <div class="absolute top-0 right-0 bg-green-600 text-white text-[10px] font-bold px-2 py-1 rounded-bl shadow">OPTIMIZED</div>
+                        <div class="bg-slate-900 p-5 rounded-lg border border-green-900/50 text-center relative overflow-hidden">
+                            <div class="absolute top-0 right-0 bg-green-600 text-white text-[10px] font-bold px-2 py-1 rounded-bl">OPTIMIZED</div>
                             <p class="text-xs text-slate-400 uppercase font-bold tracking-widest">Total Element Cost</p>
-                            <p class="text-4xl font-extrabold text-green-400 mt-2 drop-shadow-md" id="out-cost">$--</p>
+                            <p class="text-4xl font-extrabold text-green-400 mt-2" id="out-cost">$--</p>
                         </div>
 
-                        <div class="bg-slate-900 rounded-lg border border-slate-700 p-5 mt-auto shadow-inner">
+                        <div class="bg-slate-900 rounded-lg border border-slate-700 p-5 mt-auto">
                             <p class="text-xs text-slate-400 uppercase font-bold tracking-widest mb-3 border-b border-slate-700 pb-2">Financial Allocation</p>
                             <div class="space-y-3 text-sm text-slate-300">
-                                <div class="flex justify-between items-center"><span class="flex items-center"><i class="fa-solid fa-cubes w-6 text-slate-500"></i> Material</span> <span class="font-mono font-medium text-white" id="break-mat">$--</span></div>
-                                <div class="flex justify-between items-center"><span class="flex items-center"><i class="fa-solid fa-hard-hat w-6 text-slate-500"></i> Labor</span> <span class="font-mono font-medium text-white" id="break-lab">$--</span></div>
-                                <div class="flex justify-between items-center"><span class="flex items-center"><i class="fa-solid fa-truck-ramp-box w-6 text-slate-500"></i> Equipment</span> <span class="font-mono font-medium text-white" id="break-eq">$--</span></div>
-                                <div class="flex justify-between items-center"><span class="flex items-center"><i class="fa-solid fa-fire-burner w-6 text-red-400"></i> Heating Energy</span> <span class="font-mono font-medium text-red-300" id="break-en">$--</span></div>
+                                <div class="flex justify-between items-center"><span>Material</span> <span class="text-white" id="break-mat">$--</span></div>
+                                <div class="flex justify-between items-center"><span>Labor</span> <span class="text-white" id="break-lab">$--</span></div>
+                                <div class="flex justify-between items-center"><span>Equipment</span> <span class="text-white" id="break-eq">$--</span></div>
+                                <div class="flex justify-between items-center"><span>Energy</span> <span class="text-red-300" id="break-en">$--</span></div>
                             </div>
                         </div>
                     </div>
 
-                    <div id="error-state" class="hidden bg-red-900/50 text-red-200 p-5 rounded-lg border border-red-700/50 text-sm m-auto text-center backdrop-blur-sm">
-                        <i class="fa-solid fa-triangle-exclamation text-4xl mb-3 text-red-400 drop-shadow"></i><br>
-                        <span id="error-msg" class="font-medium">Failed to reach target strength within 28 days.</span>
-                        <p class="text-xs text-red-300 mt-2">Try increasing cementitious content, lowering water ratio, or raising curing temperature.</p>
+                    <div id="error-state" class="hidden bg-red-900/50 text-red-200 p-5 rounded-lg border border-red-700/50 text-center">
+                        <i class="fa-solid fa-triangle-exclamation text-4xl mb-3 text-red-400"></i><br>
+                        <span id="error-msg" class="font-medium">Connection failed.</span>
                     </div>
                 </div>
             </div>
         </div>
     </main>
 
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 mt-8">
-        <div class="border-t border-slate-200 pt-16">
-            <h2 class="text-3xl font-extrabold text-slate-800 mb-10 text-center tracking-tight">Core Architecture & Business Impact</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-xl border border-slate-200 shadow-md hover:shadow-xl transition-shadow duration-300">
-                    <div class="w-14 h-14 bg-blue-50 border border-blue-100 rounded-xl flex items-center justify-center mb-6 shadow-sm">
-                        <i class="fa-solid fa-network-wired text-lntblue text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-800 mb-3">Heterogeneous ML Ensemble</h3>
-                    <p class="text-slate-600 leading-relaxed">Utilizes a tri-model Voting Regressor (HistGradientBoosting, ExtraTrees, GradientBoosting) trained on dynamically synthesized features like Water-to-Binder ratios to achieve >92% predictive accuracy.</p>
-                </div>
-                
-                <div class="bg-white p-8 rounded-xl border border-slate-200 shadow-md hover:shadow-xl transition-shadow duration-300">
-                    <div class="w-14 h-14 bg-yellow-50 border border-yellow-100 rounded-xl flex items-center justify-center mb-6 shadow-sm">
-                        <i class="fa-solid fa-temperature-arrow-up text-yellow-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-800 mb-3">Thermodynamic Simulation</h3>
-                    <p class="text-slate-600 leading-relaxed">Integrates the established Nurse-Saul Maturity Equation to mathematically simulate non-linear hydration rates based on local site weather, tracking equivalent age over real time.</p>
-                </div>
-
-                <div class="bg-white p-8 rounded-xl border border-slate-200 shadow-md hover:shadow-xl transition-shadow duration-300">
-                    <div class="w-14 h-14 bg-green-50 border border-green-100 rounded-xl flex items-center justify-center mb-6 shadow-sm">
-                        <i class="fa-solid fa-chart-line text-green-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-800 mb-3">Capital Allocation Engine</h3>
-                    <p class="text-slate-600 leading-relaxed">Calculates the precise Pareto frontier between cycle speed and overhead cost, determining exactly when the heavy energy costs of steam curing become mathematically profitable.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="bg-slate-900 text-slate-400 py-10 text-center text-sm border-t border-slate-800">
-        <p class="font-medium text-slate-300">&copy; 2026 Developed by Som | Team Kaizen. Built for L&T CreaTech Hackathon.</p>
-        <p class="mt-2 text-xs opacity-60">Powered by Scikit-Learn, Gradio API, and Tailwind CSS. Hosted Serverless via Hugging Face.</p>
-    </footer>
-
     <script>
         document.getElementById('precast-form').addEventListener('submit', async function(e) {
             e.preventDefault();
             
-            // UI State management: Reset to loading state
             document.getElementById('empty-state').classList.add('hidden');
             document.getElementById('populated-results').classList.add('hidden');
             document.getElementById('error-state').classList.add('hidden');
             document.getElementById('loading').classList.remove('hidden');
 
-            // Gather inputs from the form
             const payload = {
-                cement: parseFloat(document.getElementById('cement').value),
-                slag: parseFloat(document.getElementById('slag').value),
-                fly_ash: parseFloat(document.getElementById('fly_ash').value),
-                water: parseFloat(document.getElementById('water').value),
-                super_p: parseFloat(document.getElementById('superP').value),
-                coarse_agg: parseFloat(document.getElementById('coarse_agg').value),
-                fine_agg: parseFloat(document.getElementById('fine_agg').value),
-                target_str: parseFloat(document.getElementById('target_str').value),
-                temp_c: parseFloat(document.getElementById('temp').value),
-                humidity: parseFloat(document.getElementById('humidity').value),
-                automation: document.getElementById('automation').value,
-                is_steam: document.getElementById('is_steam').checked
+                data: [
+                    parseFloat(document.getElementById('cement').value),
+                    parseFloat(document.getElementById('slag').value),
+                    parseFloat(document.getElementById('fly_ash').value),
+                    parseFloat(document.getElementById('water').value),
+                    parseFloat(document.getElementById('superP').value),
+                    parseFloat(document.getElementById('coarse_agg').value),
+                    parseFloat(document.getElementById('fine_agg').value),
+                    parseFloat(document.getElementById('target_str').value),
+                    parseFloat(document.getElementById('temp').value),
+                    parseFloat(document.getElementById('humidity').value),
+                    document.getElementById('automation').value,
+                    document.getElementById('is_steam').checked
+                ]
             };
 
             try {
-                // 1. Format payload exactly as the Hugging Face Gradio API expects
-                const gradioPayload = {
-                    data: [
-                        payload.cement, payload.slag, payload.fly_ash, payload.water,
-                        payload.super_p, payload.coarse_agg, payload.fine_agg,
-                        payload.target_str, payload.temp_c, payload.humidity,
-                        payload.automation, payload.is_steam
-                    ]
-                };
+                // FIXED: URL must be all lowercase for HF Space subdomains
+                const API_URL = "https://sou-mya-concrete-cycle-optimisation.hf.space/run/predict"; 
 
-                // 2. Exact API Endpoint Provided
-                const API_URL = "https://SOU-mya-Concrete_cycle_optimisation.hf.space/run/predict"; 
-
-                // Execute Fetch Request
                 const response = await fetch(API_URL, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(gradioPayload)
+                    body: JSON.stringify(payload)
                 });
                 
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
+                if (!response.ok) throw new Error("Backend Offline");
                 
                 const responseData = await response.json();
                 document.getElementById('loading').classList.add('hidden');
 
-                // 3. Process the Data Array returned by Gradio
-                // Expected Output format: [out_days, out_cost, out_str, out_break]
-                // Example: ["4.5 Days (Chemical Curing: 4 Days)", "$341.16 USD", "30.45 MPa", "Material: $150.00 | Labor: ..."]
-                
                 if(responseData.data && !responseData.data[0].includes("Failed")) {
-                    
-                    // Main KPIs
-                    // Extract just the "X.X Days" part before the parenthesis
-                    const daysString = responseData.data[0].split('(')[0].trim();
-                    document.getElementById('out-days').innerText = daysString;
-                    
-                    document.getElementById('out-cost').innerText = responseData.data[1].replace(' USD', '');
-                    document.getElementById('out-str').innerText = "Target Met: " + responseData.data[2];
-                    
-                    // Parse the breakdown string securely
-                    // String format: "Material: $X | Labor: $Y | Equip: $Z | Energy: $W"
-                    const breakdownStr = responseData.data[3];
-                    const parts = breakdownStr.split(' | ');
-                    
+                    // Extract values from the array returned by app.py
+                    // [res_days, res_cost, res_str, res_breakdown]
+                    const daysRaw = responseData.data[0];
+                    const costRaw = responseData.data[1];
+                    const strRaw = responseData.data[2];
+                    const breakRaw = responseData.data[3];
+
+                    document.getElementById('out-days').innerText = daysRaw.split('(')[0].trim();
+                    document.getElementById('out-cost').innerText = costRaw.replace('USD', '').trim();
+                    document.getElementById('out-str').innerText = "Target Met: " + strRaw;
+
+                    const parts = breakRaw.split(' | ');
                     if (parts.length === 4) {
-                        document.getElementById('break-mat').innerText = parts[0].replace('Material: ', '').trim();
-                        document.getElementById('break-lab').innerText = parts[1].replace('Labor: ', '').trim();
-                        document.getElementById('break-eq').innerText = parts[2].replace('Equip: ', '').trim();
-                        document.getElementById('break-en').innerText = parts[3].replace('Energy: ', '').trim();
+                        document.getElementById('break-mat').innerText = parts[0].split('$')[1];
+                        document.getElementById('break-lab').innerText = parts[1].split('$')[1];
+                        document.getElementById('break-eq').innerText = parts[2].split('$')[1];
+                        document.getElementById('break-en').innerText = parts[3].split('$')[1];
                     }
-                    
-                    // Show results dashboard
+
                     document.getElementById('populated-results').classList.remove('hidden');
                 } else {
-                    // Model returned the "Failed" string
-                    document.getElementById('error-msg').innerText = "Mix design fails to meet structural requirements within the 28-day constraint.";
+                    document.getElementById('error-msg').innerText = "Mix design fails to meet strength requirements.";
                     document.getElementById('error-state').classList.remove('hidden');
                 }
             } catch (error) {
-                console.error("API Error Details:", error);
                 document.getElementById('loading').classList.add('hidden');
-                document.getElementById('error-msg').innerText = "Cloud server connection failed. The AI backend might be waking up or offline.";
+                document.getElementById('error-msg').innerText = "AI Backend is waking up. Please retry in 30 seconds.";
                 document.getElementById('error-state').classList.remove('hidden');
             }
         });
